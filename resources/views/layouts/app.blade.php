@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <link rel="shortcut icon" href="{{ asset('logo.png') }}" type="image/x-icon">
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js', 'resources/css/style.css'])
 </head>
