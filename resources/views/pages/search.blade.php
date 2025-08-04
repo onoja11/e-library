@@ -25,6 +25,7 @@
                                     <span class="col-1 fa-solid fa-user-edit text-warning"></span>
                                     <span class="col-10">
                                         {{ $book->author }}
+                                        {{ $book->category->title }}
                                     </span>
                                 </div>
                             </div>

@@ -104,7 +104,7 @@
         <div class="nav container ">
             <a class="navbar-brand me-auto ps-4 ps-md-0" href="#">
                 <img src="{{ asset('logo.png') }}" width="40" alt="">
-                <h3 class=" d-inline-block text-warning">E-lib<span class="text-success">rary</span></h3>
+                <h3 class=" d-inline-block text-warning">E-lib<span class="text-success">rary   </span></h3>
             </a>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"

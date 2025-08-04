@@ -34,7 +34,7 @@ Route::delete('categories/{id}/delete', [CategoriesController::class, 'destroy']
 
 
 Route::resource('books', BookController::class)->middleware(['auth', 'is.admin'])->except('show');
-
+    
 
 Route::get('download/{sku}', [PageController::class, 'download'])->name('download.book');
 

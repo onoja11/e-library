@@ -178,7 +178,8 @@ class PageController extends Controller
                 ->paginate(12);
         }
 
-
+// dd($search);
+// var_dump($books);
         $title = "Search Result For: " . $search;
         return view('pages.search', compact('books', 'title'));
     }
