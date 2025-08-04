@@ -1,44 +1,54 @@
-# 1. Base PHP image with Apache
-FROM php:8.2-apache
+# Use official PHP 8.2 FPM image
+FROM php:8.2-fpm
 
-# 2. Install system dependencies & PHP extensions
+# Set working directory
+WORKDIR /var/www
+
+# Install system dependencies & PHP extensions
 RUN apt-get update && apt-get install -y \
-    libsqlite3-dev unzip git curl libzip-dev zip \
-    && docker-php-ext-install pdo pdo_sqlite
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip unzip \
+    curl \
+    git \
+    sqlite3 \
+    libsqlite3-dev \
+    nodejs \
+    npm \
+    && docker-php-ext-install pdo pdo_sqlite mbstring exif pcntl bcmath gd
 
-# 3. Enable Apache rewrite for Laravel
-RUN a2enmod rewrite
+# Install Composer from official image
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# 4. Set the working directory
-WORKDIR /var/www/html
-
-# 5. Copy project files
+# Copy all project files to container
 COPY . .
 
-# 6. Install Composer globally
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Create persistent directory for SQLite database
+# Render allows persistence in /var
+RUN mkdir -p /var && touch /var/database.sqlite
 
-# 7. Install Laravel dependencies (production)
+# Set environment variables for SQLite
+ENV DB_CONNECTION=sqlite
+ENV DB_DATABASE=/var/database.sqlite
+
+# Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
 
+# Build frontend assets
+RUN npm install && npm run build
 
+# Set file permissions for Laravel
+RUN chmod -R 755 storage bootstrap/cache
 
-# 9. Prepare SQLite database in persistent volume (/var)
-RUN touch /var/database.sqlite
+# Expose port for Render
+EXPOSE 8000
 
-# 10. Run important Laravel setup commands
-RUN php artisan key:generate --force \
-    && php artisan storage:link \
-    && php artisan config:cache \
-    && php artisan route:cache \
-    && php artisan view:cache \
-    && php artisan migrate --force
-
-# 11. Set correct permissions for Laravel
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-
-# 12. Expose web port for Render
-EXPOSE 80
-
-# 13. Start Apache server
-CMD ["apache2-foreground"]
+# Run necessary Laravel commands and start the app
+CMD php artisan key:generate --force && \
+    php artisan migrate --force && \
+    php artisan db:seed --force && \
+    php artisan config:cache && \
+    php artisan route:cache && \
+    php artisan view:cache && \
+    php artisan serve --host=0.0.0.0 --port=8000
