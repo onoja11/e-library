@@ -43,8 +43,7 @@ RUN chmod -R 755 storage bootstrap/cache
 EXPOSE 8000
 
 # Run necessary Laravel commands and start the app
-CMD php artisan key:generate --force && \
-    php artisan migrate --force && \
+CMD php artisan migrate --force && \
     php artisan db:seed --force && \
     php artisan config:cache && \
     php artisan route:cache && \
