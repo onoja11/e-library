@@ -28,9 +28,7 @@ COPY . .
 # Render allows persistence in /var
 RUN mkdir -p /var && touch /var/database.sqlite
 
-# Set environment variables for SQLite
-ENV DB_CONNECTION=sqlite
-ENV DB_DATABASE=/var/database.sqlite
+
 
 # Install PHP dependencies
 RUN composer install --no-dev --optimize-autoloader
