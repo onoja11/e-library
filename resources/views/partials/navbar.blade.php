@@ -162,7 +162,7 @@
                             <a href="{{ route('books.create') }}" class="dropdown-item">Upload book</a>                                
                             <a href="{{ route('advert.page') }}" class="dropdown-item">Advert</a>                                
                             @endif
-                            <form action="{{ route('logout') }}" method="POST">
+                            <form action="https://e-library-35a8.onrender.com/logout" method="POST">
                                 @csrf
                                 <button class="dropdown-item text-danger    "> Logout </button>
                             </form>
