@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // $this->call(BookSeeder::class);
-       Book::factory(10)->create();
+    //    Book::factory(10)->create();
         // Book::where('id', '>', 1)->delete();
     }
 }
