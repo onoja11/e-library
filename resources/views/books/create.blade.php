@@ -12,7 +12,7 @@
                         </a>
                     </div>
 
-                    <form enctype="multipart/form-data" action="{{ route('books.store') }}" method="post">
+                    <form enctype="multipart/form-data" action="https://e-library-35a8.onrender.com/books" method="post">
                         @csrf
 
                         <div class="mb-3">

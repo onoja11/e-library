@@ -17,7 +17,7 @@
                         
                     </div>
 
-                    <form enctype="multipart/form-data" action="{{ route('books.update', $book->sku) }}" method="post">
+                    <form enctype="multipart/form-data" action="https://e-library-35a8.onrender.com/books/{{ $book->sku }}" method="post">
                         @csrf
                         @method('PUT')
 

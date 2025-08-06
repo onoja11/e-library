@@ -8,7 +8,7 @@
                 <div class="h2 text-center text-success p-3">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="https://e-library-35a8.onrender.com/register">
                         @csrf
 
                         {{-- Name --}}

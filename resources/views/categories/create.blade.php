@@ -12,7 +12,7 @@
                         </a>
                     </div>
 
-                    <form action="{{ route('categories.store') }}" method="post">
+                    <form action="https://e-library-35a8.onrender.com/categories" method="post">
                         @csrf
 
                         <div class="mb-3">

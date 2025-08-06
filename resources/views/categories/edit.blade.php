@@ -12,7 +12,7 @@
                         </a>
                     </div>
 
-                    <form action="{{ route('categories.update', $category->id) }}" method="post">
+                    <form action="https://e-library-35a8.onrender.com/categories/{{  $category->id }}" method="post">
                         @csrf 
                         @method('PATCH')
 
