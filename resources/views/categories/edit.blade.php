@@ -12,7 +12,7 @@
                         </a>
                     </div>
 
-                    <form action="https://e-library-35a8.onrender.com/categories/{{  }}" method="post">
+                    <form action="https://e-library-35a8.onrender.com/categories/{{$category->id}}/edit" method="post">
                         @csrf 
                         @method('PATCH')
 
