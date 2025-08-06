@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
+        User::create([
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password'=> Hash::make('password'),
@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         // $this->call(BookSeeder::class);
-    //    Book::factory(10)->create();
+    //    Book::factory(10)->create();P
         // Book::where('id', '>', 1)->delete();
     }
 }
