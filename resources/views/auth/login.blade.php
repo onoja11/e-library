@@ -46,7 +46,7 @@
                         </button>
 
                         {{-- GitHub Login --}}
-                        <a href="https://e-library-35a8.onrender.com/auth/github" class="btn btn-dark w-100 mt-3">
+                        <a href="{{ route('github.login') }}" class="btn btn-dark w-100 mt-3">
                             <i class="fa-brands fa-github"></i> Sign In With GitHub
                         </a>
 
