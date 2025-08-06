@@ -9,7 +9,7 @@
                     <div class="text-end">
                         <a href="{{ route('home.page') }}" class="btn btn-primary ">View Advert</a>
                     </div>
-                    <form action="{{ route('advert.store') }}" method="post" enctype="multipart/form-data">
+                    <form action="https://e-library-35a8.onrender.com/advert" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="" class="form-label">Advert Title</label>
