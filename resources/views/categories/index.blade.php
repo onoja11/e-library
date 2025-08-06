@@ -21,11 +21,11 @@
                             </p>
                         </div>
                         <div class="d-flex align-items-center gap-2">
-                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary ">
+                            <a href="https://e-library-35a8.onrender.com/categories{{$category->id}}" class="btn btn-primary ">
                                 <i class="fa-solid fa-edit"></i>
                             </a>
 
-                            <a href="{{ route('categories.destroy', $category->id) }}" class="btn btn-danger" data-confirm-delete="true"><i class="fa-solid fa-trash-can"></i></a>
+                            <a href="https://e-library-35a8.onrender.com/{{$category->id}}" class="btn btn-danger" data-confirm-delete="true"><i class="fa-solid fa-trash-can"></i></a>
 
                         </div>
                         
